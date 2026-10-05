@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d17">
+  <title>Destination | Space tourism</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500&family=Bellefair&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body class="page page-destination">
+  <%- include('partials/navigation') %>
+  <main class="detail-page destination-page">
+    <h1 class="section-heading"><span>01</span> Pick your destination</h1>
+    <div class="destination-layout" data-switcher="destinations">
+      <div class="destination-visual">
+        <img class="destination-image" src="<%= destinations[0].images.png %>" alt="<%= destinations[0].name %>" data-image>
+      </div>
+      <section class="destination-info" aria-label="Destination information">
+        <div class="tab-list destination-tabs" role="tablist" aria-label="Choose a destination">
+          <% destinations.forEach((destination, index) => { %>
+            <button class="text-tab <%= index === 0 ? 'is-selected' : '' %>" type="button" role="tab" id="destination-tab-<%= index %>" aria-selected="<%= index === 0 %>" aria-controls="destination-panel" tabindex="<%= index === 0 ? '0' : '-1' %>" data-index="<%= index %>"><%= destination.name %></button>
+          <% }) %>
+        </div>
+        <div id="destination-panel" role="tabpanel" aria-labelledby="destination-tab-0" tabindex="0" data-panel>
+          <h2 class="display-title" data-name><%= destinations[0].name %></h2>
+          <p class="body-copy detail-description" data-description><%= destinations[0].description %></p>
+          <div class="stats">
+            <div><p class="stat-label">Avg. distance</p><p class="stat-value" data-distance><%= destinations[0].distance %></p></div>
+            <div><p class="stat-label">Est. travel time</p><p class="stat-value" data-travel><%= destinations[0].travel %></p></div>
+          </div>
+        </div>
+      </section>
+      <script>window.spacePageData = <%- JSON.stringify(destinations) %>;</script>
+    </div>
+  </main>
+</body>
+</html>

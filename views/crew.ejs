@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d17">
+  <title>Crew | Space tourism</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500&family=Bellefair&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body class="page page-crew">
+  <%- include('partials/navigation') %>
+  <main class="detail-page crew-page">
+    <h1 class="section-heading"><span>02</span> Meet your crew</h1>
+    <div class="crew-layout" data-switcher="crew">
+      <section class="crew-info" aria-label="Crew member details">
+        <div id="crew-panel" role="tabpanel" aria-labelledby="crew-tab-0" tabindex="0" data-panel>
+          <p class="crew-role" data-role><%= crew[0].role %></p>
+          <h2 class="crew-name" data-name><%= crew[0].name %></h2>
+          <p class="body-copy crew-bio" data-description><%= crew[0].bio %></p>
+        </div>
+        <div class="dot-tabs" role="tablist" aria-label="Choose a crew member">
+          <% crew.forEach((member, index) => { %>
+            <button class="dot-tab <%= index === 0 ? 'is-selected' : '' %>" type="button" role="tab" id="crew-tab-<%= index %>" aria-label="<%= member.name %>" aria-selected="<%= index === 0 %>" aria-controls="crew-panel" tabindex="<%= index === 0 ? '0' : '-1' %>" data-index="<%= index %>"></button>
+          <% }) %>
+        </div>
+      </section>
+      <div class="crew-visual"><img class="crew-image" src="<%= crew[0].images.png %>" alt="<%= crew[0].name %>" data-image></div>
+      <script>window.spacePageData = <%- JSON.stringify(crew) %>;</script>
+    </div>
+  </main>
+</body>
+</html>
