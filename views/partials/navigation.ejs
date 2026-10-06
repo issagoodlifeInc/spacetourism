@@ -1,0 +1,16 @@
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Space tourism home">
+    <img src="/images/shared/logo.svg" alt="">
+  </a>
+  <span class="header-rule" aria-hidden="true"></span>
+  <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+    <img src="/images/shared/icon-hamburger.svg" alt="">
+  </button>
+  <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+    <% pages.forEach((page) => { %>
+      <a class="nav-link <%= currentPath === page.path ? 'is-active' : '' %>" href="<%= page.path %>" <%= currentPath === page.path ? 'aria-current="page"' : '' %>>
+        <span class="nav-number"><%= page.number %></span><span><%= page.name %></span>
+      </a>
+    <% }) %>
+  </nav>
+</header>
