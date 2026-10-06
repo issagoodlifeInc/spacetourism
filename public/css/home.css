@@ -93,7 +93,7 @@ button { font: inherit; }
 
 .home-content {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   width: min(76.4%, 1110px);
   min-height: calc(100vh - 136px);
