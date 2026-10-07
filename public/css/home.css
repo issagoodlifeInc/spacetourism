@@ -12,7 +12,6 @@
 }
 
 html {
-  min-width: 320px;
   background: var(--ink);
 }
 
@@ -507,7 +506,7 @@ button {
   }
 }
 
-@media (max-width: 1050px) and (min-width: 701px) {
+@media (max-width: 65.625em) and (min-width: 43.8125em) {
   .page {
     background-position: center top;
   }
@@ -711,7 +710,7 @@ button {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 43.75em) {
   .page-home {
     background-image: url("/images/home/background-home-mobile.jpg");
   }
@@ -775,17 +774,18 @@ button {
   }
 
   .primary-navigation {
-    position: fixed;
+    position: absolute;
     z-index: 6;
     top: 0;
     right: 0;
-    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
     width: min(76%, 320px);
+    min-height: 100vh;
+    min-height: 100svh;
     padding: 118px 0 30px 32px;
     background: rgba(255, 255, 255, .055);
     backdrop-filter: blur(30px);
@@ -1062,13 +1062,15 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+  :root *,
+  :root *::before,
+  :root *::after {
+    animation-duration: .01ms;
+    animation-iteration-count: 1;
+    transition-duration: .01ms;
   }
 }
