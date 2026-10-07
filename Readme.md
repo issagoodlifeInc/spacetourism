@@ -39,7 +39,8 @@ Users should be able to:
 ### Links
 
 - Repository: [issagoodlifeInc/spacetourism](https://github.com/issagoodlifeInc/spacetourism)
-- Live site: Not deployed yet (run locally with `npm start`)
+- Live site: [spacetourism via netlify](https://spacetourism-p06x.onrender.com/)
+<!-- - Live site: [spacetourism via netlify](https://spacetourism-p06x.onrender.com/) -->
 
 ## My process
 

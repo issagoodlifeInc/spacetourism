@@ -19,7 +19,7 @@
     <div class="technology-layout" data-switcher="technology">
       <div class="number-tabs" role="tablist" aria-label="Choose a technology">
         <% technology.forEach((item, index) => { %>
-          <button class="number-tab <%= index === 0 ? 'is-selected' : '' %>" type="button" role="tab" id="technology-tab-<%= index %>" aria-label="<%= item.name %>" aria-selected="<%= index === 0 %>" aria-controls="technology-panel" tabindex="<%= index === 0 ? '0' : '-1' %>" data-index="<%= index %>"><%= index + 1 %></button>
+          <button class="number-tab <%= index === 0 ? 'is-selected' : '' %>" type="button" role="tab" id="technology-tab-<%= index %>" aria-label="<%= index + 1 %>. <%= item.name %>" aria-selected="<%= index === 0 %>" aria-controls="technology-panel" tabindex="<%= index === 0 ? '0' : '-1' %>" data-index="<%= index %>"><%= index + 1 %></button>
         <% }) %>
       </div>
       <section class="technology-info" id="technology-panel" role="tabpanel" aria-labelledby="technology-tab-0" tabindex="0" data-panel>
@@ -29,7 +29,7 @@
       </section>
       <div class="technology-visual">
         <picture>
-          <source media="(max-width: 700px)" srcset="<%= technology[0].images.landscape %>" data-landscape>
+          <source media="(max-width: 1050px)" srcset="<%= technology[0].images.landscape %>" data-landscape>
           <img src="<%= technology[0].images.portrait %>" alt="<%= technology[0].name %>" data-image>
         </picture>
       </div>
